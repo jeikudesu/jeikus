@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Jeiku Portfolio</title>
+    <link rel="icon" type="image/x-icon" href="favcon.png">
+    <link rel="apple-touch-icon" href="favcon.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Space+Grotesk:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- Liquid refraction filter used by the hero lens -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <filter id="liquid" x="-10%" y="-10%" width="120%" height="120%">
+        <feTurbulence type="fractalNoise" baseFrequency=".008 .012" numOctaves="2" seed="3" result="n">
+            <animate attributeName="baseFrequency" dur="14s" values=".008 .012;.013 .008;.008 .012" repeatCount="indefinite"/>
+        </feTurbulence>
+        <feDisplacementMap in="SourceGraphic" in2="n" scale="26" xChannelSelector="R" yChannelSelector="G"/>
+    </filter>
+</svg>
+
+<div id="bar"></div>
+<header class="top">
+    <a href="#home" class="logo">Jeiku</a>
+    <nav>
+        <a href="#home">Home</a><a href="#about">About</a><a href="#projects">Work</a><a href="#contact">Contact</a>
+    </nav>
+</header>
+
+<!-- ============ HOME: liquid glass lens ============ -->
+<section id="home" class="hero">
+    <div class="stage" id="stage">
+        <!-- REPLACE: hero image -->
+        <img class="hero-img" src="Photo/home1.jpg" alt="home hero image">
+        <div class="hero-shade"></div>
+        <div class="hero-copy">
+            <p class="eyebrow">Video editor · Photo editor · Developer</p>
+            <h1 class="hero-title"><span>Edit.</span><span>Create.</span><span>Code.</span></h1>
+            <p class="hero-sub">Hi, I'm Jake Gomez. I specialize in dynamic video editing and clean, impactful layout design. Let's bring your ideas to life.</p>
+            <div class="cta"><a href="#projects" class="btn">View my work</a></div>
+        </div>
+    </div>
+    <div class="lens" id="lens" inert>
+        <div class="lens-clip"><div class="lens-inner" id="lensInner"></div></div>
+        <div class="lens-glass"></div>
+    </div>
+    <p class="hint-ptr">Move your pointer ↗</p>
+</section>
+
+<!-- ============ ABOUT: shadow & light ============ -->
+<section id="about" class="about">
+    <div class="about-bg" data-speed=".1">
+        <!-- REPLACE: one image per chapter -->
+        <img class="on" src="Photo/alangilan-1.jpg" alt="">
+        <img src="Photo/about2.jpg" alt="">
+        <img src="Photo/Depositphotos_45480191_XL-scaled.jpg" alt="">
+    </div>
+    <div class="about-dark"></div>
+
+    <div class="about-body">
+        <div class="chapters">
+            <article class="chapter on">
+                <p class="chap-label">01 — Now</p>
+                <h2 class="serif"><span class="ln"><span>Learning in</span></span><span class="ln"><span><em>college</em></span></span></h2>
+                <p class="chap-text">Currently studying at Batangas State University-TNEU. Taking BS Information Technology, major in Business Analytics.</p>
+                <div class="stat"><b>2024 —</b><small>Present</small></div>
+            </article>
+            <article class="chapter">
+                <p class="chap-label">02 — Before</p>
+                <h2 class="serif"><span class="ln"><span>Where the</span></span><span class="ln"><span><em>code</em> began</span></span></h2>
+                <p class="chap-text">Graduated from AASMNHS. ICT strand, major in Computer System Servicing.</p>
+                <div class="stat"><b>2024</b><small>Senior high graduate</small></div>
+            </article>
+            <article class="chapter">
+                <p class="chap-label">03 — Craft</p>
+                <h2 class="serif"><span class="ln"><span>Making</span></span><span class="ln"><span><em>content</em></span></span></h2>
+                <p class="chap-text">Making content on different platforms.</p>
+                <div class="stat"><b>2020 —</b><small>Creating since</small></div>
+            </article>
+        </div>
+
+        <aside class="tools rv">
+            <p class="eyebrow">Tools</p>
+            <div class="tool"><span>CapCut</span><i>95%</i><b style="--w:95%"></b></div>
+            <div class="tool"><span>Canva</span><i>80%</i><b style="--w:80%"></b></div>
+            <div class="tool"><span>Adobe Photoshop</span><i>50%</i><b style="--w:50%"></b></div>
+        </aside>
+    </div>
+
+    <nav class="chap-nav">
+        <button class="on">01 <span>Now</span></button>
+        <button>02 <span>Before</span></button>
+        <button>03 <span>Craft</span></button>
+        <button class="nx" id="nextCh">Next chapter →</button>
+    </nav>
+    <p class="hint-light">Light in motion · move your cursor</p>
+</section>
+
+<!-- ============ PROJECTS: spatial gallery ============ -->
+<section id="projects" class="work">
+    <div class="work-head">
+        <div>
+            <p class="eyebrow">Selected work</p>
+            <h2 class="serif">Spatial <em>gallery</em></h2>
+        </div>
+        <p class="eyebrow">Drag in any direction</p>
+    </div>
+    <div class="gallery" id="gallery"><div class="plane" id="plane"></div></div>
+</section>
+
+<div class="viewer" id="viewer" role="dialog" aria-modal="true" aria-label="Project viewer">
+    <div class="v-media" id="vMedia"></div>
+    <div class="v-info">
+        <p class="eyebrow" id="vCat"></p>
+        <h3 class="serif" id="vTitle"></h3>
+        <p class="eyebrow" id="vCount"></p>
+        <div class="v-btns"><button id="vPrev">← Previous</button><button id="vNext">Next →</button></div>
+        <button id="vClose" class="v-close">← Back to gallery</button>
+    </div>
+</div>
+
+<div class="marquee" aria-hidden="true">
+    <div class="track" id="track"></div>
+</div>
+
+<!-- ============ CONTACT ============ -->
+<section id="contact" class="contact">
+    <div class="ghost" data-speed="-.12">hello</div>
+    <div class="c-grid">
+        <div class="rv">
+            <p class="eyebrow">Contact</p>
+            <h2 class="serif big">Let's work <em>together</em></h2>
+            <p class="c-text">Ready to start your next project? Reach out to me on any of the platforms below.</p>
+            <a class="mail" href="mailto:jake.ggvi@gmail.com">jake.ggvi@gmail.com <span>↗</span></a>
+            <ul class="socials">
+                <li><a href="https://t.me/jakegomezuu" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-telegram"></i> Telegram</a></li>
+                <li><a href="https://www.facebook.com/jakegomezuu" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-facebook"></i> Facebook</a></li>
+                <li><a href="https://www.instagram.com/jeiku.ggvi/" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-instagram"></i> Instagram</a></li>
+            </ul>
+        </div>
+        <figure class="quote rv">
+            <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+            <blockquote>“Exceptional editing and pacing! They understood exactly what vibe I was going for, the turnaround was fast, and the final layout was spotless.”</blockquote>
+            <figcaption>
+                <img src="Photo/mama.jpg" alt="Rene Camacho">
+                <span>Rene Camacho<br>Project completed January 2024</span>
+            </figcaption>
+        </figure>
+    </div>
+    <footer>© 2026 Jeiku. All Rights Reserved.</footer>
+</section>
+
+<script src="script.js"></script>
+</body>
+</html>
